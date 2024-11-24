@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* Schwarzer Hintergrund */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.block {
+  position: relative;
+  margin: auto;
+  width: 300px; /* Schmalere Karte */
+  height: 500px; /* Angepasste Höhe */
+  background: linear-gradient(0deg, #000, #272727); /* Dunkler Verlauf */
+  border-radius: 10px;
+  transition: transform 0.3s ease; /* Animation für Hover-Effekt */
+}
+
+.block:hover {
+  transform: scale(1.05); /* Vergrößert die Karte leicht */
+}
+
+.block:before, .block:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 20s linear infinite;
+  border-radius: 12px; /* Abrundung der Border */
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.block:after {
+  filter: blur(50px); /* Leuchtende Wirkung */
+  z-index: -2;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, #1a1a1a, #333); /* Dunkler Verlauf innerhalb der Karte */
+  color: #e2e2e2; /* Helle Schrift für Kontrast */
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card-background {
+  width: 100%;
+  height: 60%;
+  background-size: cover;
+  background-position: center;
+  background-color: #333;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+input[type="file"] {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9em;
+  color: #fff;
+  background: #444;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  background: #555;
+  color: #fff;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}
